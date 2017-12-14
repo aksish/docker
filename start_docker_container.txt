@@ -1,1 +1,4 @@
-#~ docker run -it --hostname worker --add-host master:10.0.0.224 nubuntu:sparks
+# docker run -it --hostname worker --add-host master:10.0.0.224 nubuntu:sparks
+# docker run -it --rm  --hostname worker1 --add-host ux330uak:10.0.0.224 nubuntu:sparks
+	 --rm deletes container when restarted
+ 
