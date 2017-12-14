@@ -1,0 +1,1 @@
+#~ docker run -it --hostname worker --add-host master:10.0.0.224 nubuntu:sparks
