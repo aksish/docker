@@ -22,8 +22,8 @@ RUN apt-get install -y scala
 
 
 #--------spark setup--------------
-ARG spark_path = /usr/local/spark
-ARG spark_release = spark-2.2.1-bin-hadoop2.7.tgz
+ARG spark_path=/usr/local/spark
+ARG spark_release=spark-2.2.1-bin-hadoop2.7.tgz
 
 RUN mkdir ${spark_path}
 
