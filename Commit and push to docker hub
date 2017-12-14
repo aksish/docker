@@ -1,4 +1,5 @@
  [FIRST]: Create a repo in docker hub. Eg: aksish/nubuntu-spark
+   [TAG]: docker tag <image-id> <repo-name>:<tag_name>
 [COMMIT]: docker commit -m "java, scala, spark and python in one place" -a Aashis <container-id> <username/repo-name>:<tag-name>
   [PUSH]: docker push <username/repo-name>
 
