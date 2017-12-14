@@ -1,0 +1,8 @@
+version: '3.1'
+
+services:
+ spark-engine:
+  build: .
+  hostname: nubuntu
+  extra_hosts:
+   - "ak-ux330uak:10.0.0.224"
