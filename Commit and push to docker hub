@@ -1,0 +1,2 @@
+Create a repo in docker hub. Eg: aksish/nubuntu-spark
+docker commit -m "Msg" -a "author"  
