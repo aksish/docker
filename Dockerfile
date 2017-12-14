@@ -7,8 +7,10 @@ MAINTAINER AashisKhanal[sraashis@gmail.com]
 
 RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
 
+
 #----------Java 8 setup-----------
 RUN apt-get update
+RUN apt-get install -y --no-install-recommends apt-utils
 RUN apt-get install -y software-properties-common python-software-properties
 RUN add-apt-repository -y ppa:webupd8team/java
 RUN apt-get update
@@ -19,7 +21,6 @@ RUN apt-get install -y python3
 RUN apt-get install -y python3-pip
 RUN apt-get install -y scala
 #RUN pip install -r requirements.txt
-
 
 #--------spark setup--------------
 ARG spark_path=/usr/local/spark
@@ -39,17 +40,7 @@ RUN apt-get autoclean && apt-get autoremove
 RUN rm -rf /var/lib/apt/lists/
 RUN rm -rf /var/cache/oracle-jdk8-installer
 
-#---------SET ENVIRONMENTS-----------------------
-ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
-#ENV SPARK_HOME=/home/ak/spark-2.2.1-bin-hadoop2.7
-#ENV PATH=$SPARK_HOME/bin:$PATH
-
-#ENV PYSPARK_DRIVER_PYTHON=jupyter
-#ENV PYSPARK_DRIVER_PYTHON_OPTS='notebook'
-
-#---------------PORT MAPPINGS------------------
-#EXPOSE 8080 8081 6066 7077 4040 7001 7002 7003 7004 7005 7006
-
+#---------SET ENVIRONMENTS in .env file used by docker-compose----------------------
 
 
 	
