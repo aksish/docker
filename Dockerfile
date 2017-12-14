@@ -1,5 +1,3 @@
-# docker
-#Dockerfile for spark-ubunt-scala-python3
 #-----------Reference------------
 #https://github.com/dockerfile/java/blob/master/oracle-java8/Dockerfile
 #https://stackoverflow.com/questions/19275856/auto-yes-to-the-license-agreement-on-sudo-apt-get-y-install-oracle-java7-instal
@@ -23,12 +21,12 @@ RUN apt-get install -y scala
 
 #--------spark setup--------------
 ARG spark_path=/usr/local/spark
-ARG spark_release=spark-2.2.1-bin-hadoop2.7.tgz
+ARG spark_url=http://mirrors.advancedhosters.com/apache/spark/spark-2.2.1/spark-2.2.1-bin-hadoop2.7.tgz
 
 RUN mkdir ${spark_path}
 
-RUN wget https://www.apache.org/dyn/closer.lua/spark/spark-2.2.1/${spark_release}
-RUN tar -xvf ${spark_release} ${spark_path}
+RUN wget ${spark_url}
+RUN tar -xf ${spark_release} ${spark_path}
 RUN rm ${spark_release}
  
 
