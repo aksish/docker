@@ -1,4 +1,4 @@
-#-----------Reference------------
+#-----------References------------
 #https://github.com/dockerfile/java/blob/master/oracle-java8/Dockerfile
 #https://stackoverflow.com/questions/19275856/auto-yes-to-the-license-agreement-on-sudo-apt-get-y-install-oracle-java7-instal
 
