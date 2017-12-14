@@ -21,12 +21,13 @@ RUN apt-get install -y scala
 
 #--------spark setup--------------
 ARG spark_path=/usr/local/spark
-ARG spark_url=http://mirrors.advancedhosters.com/apache/spark/spark-2.2.1/spark-2.2.1-bin-hadoop2.7.tgz
+ARG spark_url=http://mirrors.advancedhosters.com/apache/spark/spark-2.2.1/
+ARG spark_release=spark-2.2.1-bin-hadoop2.7.tgz
 
 RUN mkdir ${spark_path}
 
-RUN wget ${spark_url}
-RUN tar xvzf ${spark_release} -C ${spark_path}
+RUN wget ${spark_url}${spark_release}
+RUN tar xvzf ${spark_release} -C /usr/local/spark/
 RUN rm ${spark_release}
  
 
