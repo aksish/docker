@@ -26,7 +26,7 @@ ARG spark_url=http://mirrors.advancedhosters.com/apache/spark/spark-2.2.1/spark-
 RUN mkdir ${spark_path}
 
 RUN wget ${spark_url}
-RUN tar -xf ${spark_release} ${spark_path}
+RUN tar xvzf ${spark_release} -C ${spark_path}
 RUN rm ${spark_release}
  
 
