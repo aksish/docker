@@ -1,0 +1,15 @@
+#https://stackoverflow.com/questions/22111060/difference-between-expose-and-publish-in-docker
+Basically, you have three options:
+
+Neither specify EXPOSE nor -p.
+Only specify EXPOSE.
+Specify EXPOSE and -p.
+If you do not specify any of those, the service in the container will not be accessible from anywhere except from inside the container itself.
+
+If you EXPOSE a port, the service in the container is not accessible from outside Docker, but from inside other Docker containers. So this is good for inter-container communication.
+
+If you EXPOSE and -p a port, the service in the container is accessible from anywhere, even outside Docker.
+
+#add host
+~# --add-host domain:IP
+
