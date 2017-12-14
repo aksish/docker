@@ -5,6 +5,8 @@
 FROM ubuntu:16.04
 MAINTAINER AashisKhanal[sraashis@gmail.com]
 
+RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
+
 #----------Java 8 setup-----------
 RUN apt-get update
 RUN apt-get install -y software-properties-common python-software-properties
@@ -44,6 +46,11 @@ ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 
 #ENV PYSPARK_DRIVER_PYTHON=jupyter
 #ENV PYSPARK_DRIVER_PYTHON_OPTS='notebook'
+
+#---------------PORT MAPPINGS------------------
+#EXPOSE 8080 8081 6066 7077 4040 7001 7002 7003 7004 7005 7006
+
+
 
 	
 #Default command

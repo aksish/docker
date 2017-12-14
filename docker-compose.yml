@@ -1,9 +1,38 @@
 version: '3.1'
 
 services:
- spark-engine:
-  build: .
-  hostname: worker
+
+ worker:
   image: nubuntu:sparks
+  hostname: worker
+
+  environment:
+   - SPARK_WORKER_CORES=2
+   - SPARK_WORKER_MEMORY=1g
+
   extra_hosts:
    - "ak-ux330uak:10.0.0.224"
+  build: .
+  
+  expose:
+   - 7001
+   - 7002
+   - 7003
+   - 7004
+   - 7005
+   - 7006
+   - 8080
+   - 8081
+   - 6066
+   - 7077
+   - 4040
+   
+  ports:
+   - 4040:4040
+   - 6066:6066
+   - 7077:7077
+   - 8080:8080
+
+   
+  
+   
