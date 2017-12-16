@@ -45,9 +45,10 @@ RUN rm ${spark_release}
 ARG SPARK_USER=ak
 RUN apt-get update 
 RUN apt-get install -y openssh-server
-RUN adduser ${SPARK_USER} --gecos "First Last,RoomNumber,WorkPhone,HomePhone" --disabled-password
+RUN adduser ${SPARK_USER} --gecos "Docker User,RoomNumber,WorkPhone,HomePhone" --disabled-password
 RUN echo 'ak:redhat' | chpasswd
 RUN usermod -a -G sudo ak
+RUN su ak
 
 RUN mkdir -p /home/${SPARK_USER}/.ssh
 RUN mkdir -p /var/run/sshd
@@ -62,11 +63,11 @@ RUN chown -R ak:ak ${spark_path}
 
 RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 
-#Run ssh-copy-id for passwordless login <Password: is redhat>
+#Run ssh-copy-id ak@worker from master for passwordless login. First time Password is "redhat"
 
 COPY bootstrap.sh /etc/bootstrap.sh
 RUN chown root.root /etc/bootstrap.sh
-RUN chmod 700 /etc/bootstrap.sh
+RUN chmod 755 /etc/bootstrap.sh
 
 
 #clean
@@ -77,5 +78,6 @@ RUN rm -rf /var/cache/oracle-jdk8-installer
 #---------SET ENVIRONMENTS in .env file used by docker-compose----------------------	
 
 #ENTRY POINT
+CMD ["bash"]
 ENTRYPOINT ["/etc/bootstrap.sh"]
 
