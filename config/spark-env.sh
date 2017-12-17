@@ -63,6 +63,6 @@
 # - SPARK_NO_DAEMONIZE  Run the proposed command in the foreground. It will not output a PID file.
 
 
-SPARK_WORKER_INSTANCES=2
+SPARK_WORKER_INSTANCES=1
 SPARK_WORKER_CORES=2
 SPARK_WORKER_MEMORY=2g
