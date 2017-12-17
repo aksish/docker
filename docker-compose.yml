@@ -10,7 +10,11 @@ services:
    - .env
   extra_hosts:
    - "master:${SPARK_MASTER_ADDR}"
-  
+  volumes:
+   - ${REQUIREMENTS_DOT_TXT_PATH}:/etc/docker-config/_requirements.txt
+   - ${SPARK_ENV_DOT_SH_PATH}:/usr/local/spark/spark-2.2.1-bin-hadoop2.7/conf/spark-env.sh
+  command: bash
+  entrypoint: /etc/bootstrap.sh
   expose:
   - 8080
   - 7077
